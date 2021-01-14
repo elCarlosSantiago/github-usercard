@@ -85,12 +85,12 @@ function gitCardMaker({
   username.classList.add("username");
   username.textContent = login;
   locationP.textContent = location;
-  profile.textContent = "Profile";
+  profile.textContent = "Profile: ";
   gitLink.href = html_url;
   gitLink.textContent = html_url;
-  gitFollowers.textContent = followers;
-  gitFollowing.textContent = following;
-  gitBio.textContent = bio;
+  gitFollowers.textContent = `Followers: ${followers}`;
+  gitFollowing.textContent = `Following: ${following}`;
+  gitBio.textContent = `Bio: ${bio}`;
   // creating hierarchy
   gitCard.appendChild(avatar);
   gitCard.appendChild(cardInfo);
@@ -101,7 +101,7 @@ function gitCardMaker({
   profile.appendChild(gitLink);
   cardInfo.appendChild(gitFollowers);
   cardInfo.appendChild(gitFollowing);
-  cardInfo.appendChild(bio);
+  cardInfo.appendChild(gitBio);
   console.log(gitCard);
   return gitCard;
 }

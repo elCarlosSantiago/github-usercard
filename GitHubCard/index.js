@@ -53,6 +53,28 @@ axios
 
 const followersArray = ['tetondan', 'dustinmyers', 'justsml', 'luishrd', 'bigknell'];
 
+followersArray.forEach((item) => {
+  axios.get(`https://api.github.com/users/${item}`)
+  .then((res) =>{
+    const gitData = res.data;
+    const newGitCard = gitCardMaker({
+      avatar_url: gitData.avatar_url,
+      name: gitData.name,
+      login: gitData.login,
+      location: gitData.location,
+      html_url: gitData.html_url,
+      followers: gitData.followers,
+      following: gitData.following,
+      bio: gitData.bio,
+    });
+    cards.appendChild(newGitCard);
+  })
+  .catch((err) =>{
+    debugger
+  })
+})
+
+  
 
 
 function gitCardMaker({
